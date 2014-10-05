@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		218FAE7B19E17D7D00501D62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE7A19E17D7D00501D62 /* main.m */; };
 		218FAE7E19E17D7D00501D62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE7D19E17D7D00501D62 /* AppDelegate.m */; };
-		218FAE8119E17D7D00501D62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE8019E17D7D00501D62 /* ViewController.m */; };
+		218FAE8119E17D7D00501D62 /* TutoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE8019E17D7D00501D62 /* TutoTableViewController.m */; };
 		218FAE8419E17D7D00501D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FAE8219E17D7D00501D62 /* Main.storyboard */; };
 		218FAE8619E17D7D00501D62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FAE8519E17D7D00501D62 /* Images.xcassets */; };
 		218FAE8919E17D7D00501D62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218FAE8719E17D7D00501D62 /* LaunchScreen.xib */; };
 		218FAE9519E17D7D00501D62 /* GBATutoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE9419E17D7D00501D62 /* GBATutoAppTests.m */; };
+		218FAEA019E1997000501D62 /* AdvancedUIAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 218FAE9F19E1997000501D62 /* AdvancedUIAsync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,16 @@
 		218FAE7A19E17D7D00501D62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		218FAE7C19E17D7D00501D62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		218FAE7D19E17D7D00501D62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		218FAE7F19E17D7D00501D62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		218FAE8019E17D7D00501D62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		218FAE7F19E17D7D00501D62 /* TutoTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TutoTableViewController.h; sourceTree = "<group>"; };
+		218FAE8019E17D7D00501D62 /* TutoTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutoTableViewController.m; sourceTree = "<group>"; };
 		218FAE8319E17D7D00501D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		218FAE8519E17D7D00501D62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		218FAE8819E17D7D00501D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		218FAE8E19E17D7D00501D62 /* GBATutoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBATutoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FAE9319E17D7D00501D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		218FAE9419E17D7D00501D62 /* GBATutoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBATutoAppTests.m; sourceTree = "<group>"; };
+		218FAE9E19E1997000501D62 /* AdvancedUIAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedUIAsync.h; sourceTree = "<group>"; };
+		218FAE9F19E1997000501D62 /* AdvancedUIAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedUIAsync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +86,14 @@
 			children = (
 				218FAE7C19E17D7D00501D62 /* AppDelegate.h */,
 				218FAE7D19E17D7D00501D62 /* AppDelegate.m */,
-				218FAE7F19E17D7D00501D62 /* ViewController.h */,
-				218FAE8019E17D7D00501D62 /* ViewController.m */,
+				218FAE7F19E17D7D00501D62 /* TutoTableViewController.h */,
+				218FAE8019E17D7D00501D62 /* TutoTableViewController.m */,
 				218FAE8219E17D7D00501D62 /* Main.storyboard */,
 				218FAE8519E17D7D00501D62 /* Images.xcassets */,
 				218FAE8719E17D7D00501D62 /* LaunchScreen.xib */,
 				218FAE7819E17D7D00501D62 /* Supporting Files */,
+				218FAE9E19E1997000501D62 /* AdvancedUIAsync.h */,
+				218FAE9F19E1997000501D62 /* AdvancedUIAsync.m */,
 			);
 			path = GBATutoApp;
 			sourceTree = "<group>";
@@ -219,8 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218FAE8119E17D7D00501D62 /* ViewController.m in Sources */,
+				218FAE8119E17D7D00501D62 /* TutoTableViewController.m in Sources */,
 				218FAE7E19E17D7D00501D62 /* AppDelegate.m in Sources */,
+				218FAEA019E1997000501D62 /* AdvancedUIAsync.m in Sources */,
 				218FAE7B19E17D7D00501D62 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

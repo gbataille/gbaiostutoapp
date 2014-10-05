@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AdvancedUIAsync.h
 //  GBATutoApp
 //
 //  Created by Gregory Bataille on 05/10/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AdvancedUIAsync : UITableViewController <UITableViewDataSource, UITableViewDelegate> 
 
 @end
-

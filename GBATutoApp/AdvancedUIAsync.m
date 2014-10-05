@@ -43,7 +43,12 @@
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fbGraphAPIPicture]]];
         // Change the UI components in the mainThread
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [cell.imageView setImage:image];
+            // The following method returns the cell only if it's still visible.
+            // If it's still visible, we see that it's still the same cell instance being used for this indexPath
+            UITableViewCell *visibleCell = [tableView cellForRowAtIndexPath:indexPath];
+            if (visibleCell && [visibleCell isEqual:cell]) {
+                [cell.imageView setImage:image];
+            }
         }];
     }];
     
@@ -53,9 +58,6 @@
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 2) {
-        [[[UIAlertView alloc] initWithTitle:@"Implem 2" message:@"Play at scrolling up and down rapidly then stop. You'll see the image change and be all messed up" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    }
 }
 
 #pragma mark - Controller Lifecycle
@@ -72,7 +74,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Implem 2" message:@"Images will appear on their own, as soon as the data is retrieved over the network" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Implem 3" message:@"All good now. No scroll odd issues anymore" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert setTag:2];
     [alert show];
 

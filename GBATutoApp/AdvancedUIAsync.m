@@ -34,18 +34,28 @@
     
     cell.textLabel.text = [facebookId stringValue];
     
-    // Picture to be retrieved on the network
-    NSString *fbGraphAPIPicture = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=normal", facebookId];
+    // Picture to be retrieved on the network - changed to large to introduce some visible load latency
+    NSString *fbGraphAPIPicture = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", facebookId];
     // Puts a static image in the placeholder. This is to alloc for the cell to be displaced with the picture layout.
     [cell.imageView setImage:[UIImage imageNamed:@"icon_facebook_white"]];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fbGraphAPIPicture]]];
-        [cell.imageView setImage:image];
-        [cell setNeedsDisplay];
+        // Change the UI components in the mainThread
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [cell.imageView setImage:image];
+        }];
     }];
     
     return cell;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 2) {
+        [[[UIAlertView alloc] initWithTitle:@"Implem 2" message:@"Play at scrolling up and down rapidly then stop. You'll see the image change and be all messed up" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 
 #pragma mark - Controller Lifecycle
@@ -62,7 +72,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[[UIAlertView alloc] initWithTitle:@"Implem 1" message:@"After a little while, scroll just a bit to trigger a repaint and see some images appear" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Implem 2" message:@"Images will appear on their own, as soon as the data is retrieved over the network" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert setTag:2];
+    [alert show];
+
 }
 
 @end

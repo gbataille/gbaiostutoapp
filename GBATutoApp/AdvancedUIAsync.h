@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdvancedUIAsync : UITableViewController <UITableViewDataSource, UITableViewDelegate> 
+@interface AdvancedUIAsync : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @end

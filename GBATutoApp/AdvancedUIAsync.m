@@ -36,8 +36,14 @@
     
     // Picture to be retrieved on the network
     NSString *fbGraphAPIPicture = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=normal", facebookId];
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fbGraphAPIPicture]]];
-    [cell.imageView setImage:image];
+    // Puts a static image in the placeholder. This is to alloc for the cell to be displaced with the picture layout.
+    [cell.imageView setImage:[UIImage imageNamed:@"icon_facebook_white"]];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperationWithBlock:^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fbGraphAPIPicture]]];
+        [cell.imageView setImage:image];
+        [cell setNeedsDisplay];
+    }];
     
     return cell;
 }
@@ -51,6 +57,12 @@
         [arr addObject:[NSNumber numberWithInt:(1111111 + i)]];
     }
     self.items = [NSArray arrayWithArray:arr];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[[UIAlertView alloc] initWithTitle:@"Implem 1" message:@"After a little while, scroll just a bit to trigger a repaint and see some images appear" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 @end
